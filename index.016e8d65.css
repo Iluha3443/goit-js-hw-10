@@ -1,0 +1,2 @@
+.loader{width:64px;height:64px;border-radius:50%;animation:rotate 2s ease-in infinite alternate;position:relative;box-shadow:inset -10px 8px 0 18px #fff}.loader:before{content:"";width:16px;height:16px;background:#ff3d00;border-radius:50%;animation:scale 1s ease-in infinite alternate;position:absolute;bottom:16px;left:14px}@keyframes rotate{to{transform:rotate(750deg)}}@keyframes scale{to{transform:matrix(.5,0,0,.5,0,2.5)}}
+/*# sourceMappingURL=index.016e8d65.css.map */
