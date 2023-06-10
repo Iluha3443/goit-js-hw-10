@@ -37,10 +37,10 @@ selectBreed.addEventListener('change', () => {
     fetchCatByBreed(selectBreedId).then(data => {
         const html = data.map(cat => `
             <li>
-                <img src="${cat.url}" alt="" width = 300 />
-                <h2>${cat.id}</h2>
-                <p></p>
-                <p></p>
+                <img src="${cat.url}" alt="${cat.breeds[0].name}" width = 300 />
+                <h2>${cat.breeds[0].name}</h2>
+                <p>${cat.breeds[0].description}</p>
+                <p>${cat.breeds[0].temperament}</p>
             </li>
         `).join('');
         parentEl.style.display = 'block';
