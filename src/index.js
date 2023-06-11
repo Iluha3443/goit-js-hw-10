@@ -1,5 +1,4 @@
 import { fetchBreeds,fetchCatByBreed } from './cat-api.js';
-import SlimSelect from 'slim-select';
 import Notiflix from 'notiflix';
 
 
@@ -35,6 +34,9 @@ selectBreed.addEventListener('change', () => {
     const selectBreedId = selectBreed.value;
      loader.style.display = 'block';
     fetchCatByBreed(selectBreedId).then(data => {
+        if (!data || data.length === 0) {
+            Notiflix.Notify.info(" Oops! Something went wrong! Try reloading the page!");
+        }
         const html = data.map(cat => `
             <li>
                 <img src="${cat.url}" alt="${cat.breeds[0].name}" width = 300 />
@@ -45,7 +47,6 @@ selectBreed.addEventListener('change', () => {
         `).join('');
         parentEl.style.display = 'block';
         parentEl.innerHTML = html;
-        console.log(data)
     }).catch(() => {
       Notiflix.Notify.info(" Oops! Something went wrong! Try reloading the page!");
     }).finally(() => {

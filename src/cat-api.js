@@ -1,7 +1,11 @@
+import Notiflix from 'notiflix';
+
 export function fetchBreeds() {
     return fetch(`https://api.thecatapi.com/v1/breeds`)
-        .then(r => r.json());
-        
+        .then(r => r.json())
+        .catch(() => {
+      Notiflix.Notify.info(" Oops! Something went wrong! Try reloading the page!");
+    })
 };
 
 export function fetchCatByBreed(breedId) {
@@ -17,5 +21,7 @@ export function fetchCatByBreed(breedId) {
         })
         .then(data => {
             return data;
-        });
+        }).catch(() => {
+      Notiflix.Notify.info(" Oops! Something went wrong! Try reloading the page!");
+    });
 }
